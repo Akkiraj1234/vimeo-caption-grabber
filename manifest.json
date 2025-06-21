@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Vimeo Transcript Downloader",
+  "version": "1.1",
+  "description": "Download clean English transcripts from embedded Vimeo players.",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://player.vimeo.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}
