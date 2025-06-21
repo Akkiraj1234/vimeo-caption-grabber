@@ -1,34 +1,35 @@
-name: Release Extension
+name: Create GitHub Release
 
 on:
   push:
     tags:
       - 'v*'
 
+permissions:
+  contents: write  # ✅ Fixes the 403 issue when creating releases
+
 jobs:
   release:
-    name: Create GitHub Release
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 📜 Read CHANGELOG for release notes
-        id: changelog
+      - name: Extract tag name
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Extract release notes from CHANGELOG.md
+        id: extract_changelog
         run: |
-          tag_name="${GITHUB_REF#refs/tags/}"
-          notes=$(awk "/^## ${tag_name}$/,/^## /" CHANGELOG.md | sed '1d;$d')
-          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
-          echo "$notes" >> $GITHUB_ENV
+          changelog=$(awk "/^## ${{ env.TAG_NAME }}/,/^##/" CHANGELOG.md | sed '1d;$d')
+          echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
+          echo "$changelog" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - name: 🚀 Create Release
+      - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
-          name: ${{ github.ref_name }}
-          tag_name: ${{ github.ref_name }}
-          body: ${{ env.RELEASE_NOTES }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          body: ${{ env.RELEASE_BODY }}
