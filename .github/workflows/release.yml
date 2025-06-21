@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 permissions:
-  contents: write  # ✅ Fixes the 403 issue when creating releases
+  contents: write
 
 jobs:
   release:
@@ -22,10 +22,21 @@ jobs:
       - name: Extract release notes from CHANGELOG.md
         id: extract_changelog
         run: |
-          changelog=$(awk "/^## ${{ env.TAG_NAME }}/,/^##/" CHANGELOG.md | sed '1d;$d')
+          TAG="${{ env.TAG_NAME }}"
+          # Extract section for current tag until next '##' or end of file
+          changelog=$(awk -v tag="## $TAG" '
+            $0 == tag {flag=1; next}
+            /^## / && flag {exit}
+            flag { print }
+          ' CHANGELOG.md)
+
+          # Save to environment variable
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
           echo "$changelog" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+
+      - name: Zip extension folder
+        run: zip -r extension.zip extension
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
@@ -33,3 +44,4 @@ jobs:
           tag_name: ${{ env.TAG_NAME }}
           name: Release ${{ env.TAG_NAME }}
           body: ${{ env.RELEASE_BODY }}
+          files: extension.zip
