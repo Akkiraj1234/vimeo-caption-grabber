@@ -76,3 +76,7 @@ Star ⭐ the repo if you found it useful.
 Share it with your classmates and make studying easier for all of us!
 
 Made with code and caffeine by **Akki** ☕🐾
+
+## 🚀 Releases
+
+All extension zips are auto-generated with versioned changelogs — download them from the [Releases tab](https://github.com/Akkiraj1234/vimeo-caption-grabber/releases).
