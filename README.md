@@ -1,68 +1,78 @@
-# 🐱 Vimeo Transcript Downloader — By Akki
+# 🎓 Manipal Vimeo Transcript Downloader
 
-A lightweight, privacy-friendly browser extension that helps you **download transcripts (captions)** from **Vimeo embedded videos** in `.vtt`, `.txt`, and a **cleaned text** format for easy studying.
+This is a simple Chrome extension I (Akki) built to help students in the **Manipal Online Degree Program** download and save transcripts from Vimeo videos used in the learning portal.
 
-> 🎓 Made by **Akki** – a student of Manipal Online BCA program, batch of 2025.  
-> I created this tool to help myself and others **study smarter**, especially when revisiting recorded lectures.
-
----
-
-## ✨ What This Extension Does
-
-- 📥 Automatically extracts **captions/subtitles** from embedded Vimeo players.
-- 🎯 Supports downloading:
-  - Subtitles (`.vtt`)
-  - Raw transcript (`.txt`)
-  - Cleaned transcript (merged & formatted for reading)
-- 💡 Remembers your preferences for next time!
-- 🌙 Comes with a **dark mode toggle** (because why not be cute *and* practical?)
+It extracts:
+- ✅ **Subtitles (.vtt)** — original caption file from Vimeo  
+- ✅ **Transcript (.txt)** — plain text without timestamps  
+- ✅ **Cleaned Text** — grouped into full readable sentences (like human notes!)
 
 ---
 
-## 📚 Who This Is For
+## 📦 How to Install (Manually)
 
-Especially helpful for:
-
-- 👩‍💻 Students enrolled in **Manipal University Jaipur (Online Degree)**.
-- 🧑‍🏫 Anyone watching recorded sessions on **Vimeo** with embedded subtitles.
-- 📖 Learners who prefer **cleaned notes** over full VTT files.
-
----
-
-## 🧠 How to Install
-
-Since Chrome Web Store charges for publishing, this is shared manually:
-
-1. **Download or clone this repo**
-2. Extract the ZIP if needed
-3. Open Chrome and go to `chrome://extensions`
-4. Enable **Developer Mode** (top right)
-5. Click **“Load Unpacked”**
-6. Select the folder where these files are located
-7. ✅ Done! You’ll see a kitty icon in the toolbar 🐈‍⬛
+1. Click **Code > Download ZIP**  
+2. Extract it somewhere
+3. Open Chrome and go to: `chrome://extensions`
+4. Turn on **Developer Mode** (top right)
+5. Click **"Load Unpacked"** and select the extracted folder  
+6. Done! Now visit any Manipal video lesson, open the extension, and click **Download** ✅
 
 ---
 
-## 🔒 No Tracking, Ever
+## ⚠️ Compatibility
 
-This extension **does not track, collect, or send data** anywhere. It runs entirely in your browser.
-
----
-
-## ❤️ Author
-
-**Akki**  
-🧠 BCA Student – Manipal Online  
-💻 Self-taught coder | 🎨 Sketch artist | ☁️ Dreamer of snow in Shimla  
-📬 Reach me: *coming soon*
+- ✅ Works on **Manipal Online Degree Portal**
+- ❓ May or may not work on **other sites** using Vimeo embeds (no guarantee)
+- 🔐 Requires subtitles to be **auto-generated** in English on the video
 
 ---
 
-## 🧩 Want to Help?
+## 🐾 Why I Made This
 
-Feel free to fork, improve, or remix this tool for your university. Add new features or style the UI more!
-
-Let’s make learning easier — together.
+> I’m Akki, a student and self-learner who joined the Manipal Online BCA program.  
+> I needed transcripts to revise easily offline — so I made this tool.  
+> If you're also a Manipal student struggling to find transcripts, this is for you.
 
 ---
 
+## 💡 Features
+
+- 🎀 Cute UI with dark/light mode
+- 🐱 Kitty-themed design
+- 🧠 Cleaned transcript format for human-like readability
+- 💾 Saves your download settings
+- 🔌 Fully offline, works right in your browser
+
+---
+
+## 🧪 No Tests Yet
+
+This project doesn’t include automated test cases, but each feature is manually tested on:
+- Chrome v114+
+- Brave Browser
+- Manipal's Learning Platform
+
+---
+
+## 🚀 Roadmap
+
+- [ ] Add support for more languages (future)
+- [ ] Auto-detect if video has no captions
+- [ ] Store download history (optional)
+- [ ] Package `.zip` automatically via GitHub Actions
+
+---
+
+## 📎 Keywords (for GitHub search)
+
+`manipal` `vimeo` `subtitles` `transcript` `vtt` `chrome-extension` `education` `auto-generated captions` `video captions downloader` `online learning tools`
+
+---
+
+## ❤️ Support
+
+Star ⭐ the repo if you found it useful.  
+Share it with your classmates and make studying easier for all of us!
+
+Made with code and caffeine by **Akki** ☕🐾
